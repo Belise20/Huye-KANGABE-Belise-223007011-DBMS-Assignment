@@ -1,0 +1,521 @@
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.3.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+mysql> CREATE DATABASE RUHANDE;
+ERROR 1007 (HY000): Can't create database 'ruhande'; database exists
+mysql> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| campus             |
+| information_schema |
+| kb                 |
+| level2             |
+| mysql              |
+| performance_schema |
+| ruhande            |
+| sys                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> USE RUHANDE;
+Database changed
+mysql> CREATE TABLE NGOMA;
+ERROR 4028 (HY000): A table must have at least one visible column.
+mysql> CREATE TABLE NGOMA(ID INT(18),FNAME CHAR(15),LNAME CHAR(10),PROVINCE CHAR5())
+    -> CREATE TABLE NGOMA(ID INT(18),FNAME CHAR(15),LNAME CHAR(10),PROVINCE CHAR(15),DISTRICT CHAR(15),SECTOR CHAR(15),CELL CHAR(15),EMAIL CHAR(25),TEL INT()
+    -> CREATE TABLE NGOMA(ID INT(18),FNAME CHAR(15),LNAME CHAR(10),PROVINCE CHAR(15),DISTRICT CHAR(15),SECTOR CHAR(15),CELL CHAR(15),EMAIL CHAR(25),TEL INT(12));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CHAR5())
+CREATE TABLE NGOMA(ID INT(18),FNAME CHAR(15),LNAME CHAR(10),PROVINCE CH' at line 1
+mysql> CREATE TABLE NGOMA(ID INT(17),FNAME CHAR(10),LNAME CHAR(10),PROVINCE CHAR(14),DISTRICT CHAR(15),SECTOR CHAR(15),CELL CHAR(13),EMAIL CHAR(20),TEL INT(14));
+Query OK, 0 rows affected, 2 warnings (0.03 sec)
+
+mysql> INSERT INTO NGOMA(''1200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUHOZA','RUHENGERI','belikang0@gmail.com','0784444465');
+    '> ;
+    '>
+    '> INSERT INTO NGOMA(''1200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUHOZA','RUHENGERI','belikang0@gmail.com','0784444465');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '''1200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUHOZA','RUHENGERI'' at line 1
+mysql> INSERT INTO NGOMA('''1200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUHOZA','RUHENGERI','belikang0@gmail.com','0784444465');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''''1200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUHOZA','RUHENGERI' at line 1
+mysql> INSERT INTO NGOMA('2200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUHOZA','RUHENGERI','belikang0@gmail.com','0784444465');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''2200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUHOZA','RUHENGERI',' at line 1
+mysql> INSERT INTO NGOMA VALUES('2200370034127689','KANGABE','BELISE','NORTHERN','MUSANZE','MUhOZA','RUHENGERI','belikang0@gmail.com','0784444465');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> SELECT *FROM NGOMA;
++------------+---------+--------+----------+----------+--------+-----------+---------------------+-----------+
+| ID         | FNAME   | LNAME  | PROVINCE | DISTRICT | SECTOR | CELL      | EMAIL               | TEL       |
++------------+---------+--------+----------+----------+--------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE | BELISE | NORTHERN | MUSANZE  | MUhOZA | RUHENGERI | belikang0@gmail.com | 784444465 |
++------------+---------+--------+----------+----------+--------+-----------+---------------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1200348957639037','BELISE','NORTHERN','MUSANZE','MUhOZA','RUHENGERI','belikang0@gmail.com','0784444465');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql>
+mysql> INSERT INTO NGOMA VALUES('1200348957639037',TABAGWE','BECCA','EASTERN','BUGESERA','NYAMATA','NYAMATA','tababec@gmail.com','0793879765');
+    '> INSERT INTO NGOMA VALUES('1200348957639037',TABAGWE','BECCA','EASTERN','BUGESERA','NYAMATA','NYAMATA','tababec@gmail.com','0793879765');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '','BECCA','EASTERN','BUGESERA','NYAMATA','NYAMATA','tababec@gmail.com','07938797' at line 1
+mysql> INSERT INTO NGOMA VALUES('1200348957639037','TABAGWE','BECCA','EASTERN','BUGESERA','NYAMATA','NYAMATA','tababec@gmail.com','0793879765');
+Query OK, 1 row affected, 1 warning (0.01 sec)
+
+mysql> SELECT *FROM NGOMA;
++------------+---------+--------+----------+----------+---------+-----------+---------------------+-----------+
+| ID         | FNAME   | LNAME  | PROVINCE | DISTRICT | SECTOR  | CELL      | EMAIL               | TEL       |
++------------+---------+--------+----------+----------+---------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE | BELISE | NORTHERN | MUSANZE  | MUhOZA  | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE | BECCA  | EASTERN  | BUGESERA | NYAMATA | NYAMATA   | tababec@gmail.com   | 793879765 |
++------------+---------+--------+----------+----------+---------+-----------+---------------------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1208904533785677','RUVUBATA','WADERN','SOUTHERN','RUHANGO','NYAMAGANA','RUHANGO','ruvuwade@gmail.com','0799375444');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT *FROM NGOMA;
++------------+----------+--------+----------+----------+-----------+-----------+---------------------+-----------+
+| ID         | FNAME    | LNAME  | PROVINCE | DISTRICT | SECTOR    | CELL      | EMAIL               | TEL       |
++------------+----------+--------+----------+----------+-----------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE  | BELISE | NORTHERN | MUSANZE  | MUhOZA    | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE  | BECCA  | EASTERN  | BUGESERA | NYAMATA   | NYAMATA   | tababec@gmail.com   | 793879765 |
+| 2147483647 | RUVUBATA | WADERN | SOUTHERN | RUHANGO  | NYAMAGANA | RUHANGO   | ruvuwade@gmail.com  | 799375444 |
++------------+----------+--------+----------+----------+-----------+-----------+---------------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1208904508123677','ZAKAYO','NATACHA','NORTHERN','MUSANZE','MUHOZA','BUHORO','ZAKATASHA@gmail.com','0799007877');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT \
+    -> SELECT *FROM NGOMA;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT *FROM NGOMA' at line 2
+mysql> SELECT *FROM NGOMA;
++------------+----------+---------+----------+----------+-----------+-----------+---------------------+-----------+
+| ID         | FNAME    | LNAME   | PROVINCE | DISTRICT | SECTOR    | CELL      | EMAIL               | TEL       |
++------------+----------+---------+----------+----------+-----------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE  | BELISE  | NORTHERN | MUSANZE  | MUhOZA    | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE  | BECCA   | EASTERN  | BUGESERA | NYAMATA   | NYAMATA   | tababec@gmail.com   | 793879765 |
+| 2147483647 | RUVUBATA | WADERN  | SOUTHERN | RUHANGO  | NYAMAGANA | RUHANGO   | ruvuwade@gmail.com  | 799375444 |
+| 2147483647 | ZAKAYO   | NATACHA | NORTHERN | MUSANZE  | MUHOZA    | BUHORO    | ZAKATASHA@gmail.com | 799007877 |
++------------+----------+---------+----------+----------+-----------+-----------+---------------------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1200568879802345','NICYOGIHE','DENYSE','KIGALI','NYARUGENGE','KIMISAGARA','KIGALI','rebenicy@gmail.com','0790979657');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select *from ngoma;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1200598302784045','MAFIRIMBI','JAKSON','EASTERN','NYAGATARE','TABAGWE','TABAGWE','mafijakso@gmail.com','0788864780');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> SELECT *FROM NGOMA
+    -> SELECT *FROM NGOMA ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT *FROM NGOMA' at line 2
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+6 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1200598302316535','KIREZI','VICKY','WESTERN','RUBAVU','RUBAVU','RUBAVU','vikirezi@gmail.com','0799084780');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select * from ngoma;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1202398982316535','RWIBUTSO','BENYSE','SOUTHERN','RUBAVU','RUBAVU','RUBAVU','vikirezi@gmail.com','0799084780');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1202398982316535','RWIBUTSO','BENYSE','SOUTHERN','KAMONYI','RUNDA','GIHARA','benrwibu@gmail.com','0782336010');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select * from ngoma;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> INSERT INTO NGOMA VALUES('1200789032112635','UMWALI','SONIA','SOUTHERN','HUYE','NGOMA','RUHANDE','umwaliso3@gmail.com','0782336010');
+Query OK, 1 row affected, 1 warning (0.00 sec)
+
+mysql> select *from ngoma;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA ADD GENDER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> ALTER TABLE NGOMA ADD 'GENDER';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''GENDER'' at line 1
+mysql> ALTER TABLE NGOMA ADD 'GENDER';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''GENDER'' at line 1
+mysql> ALTER TABLE NGOMA ADD GENDER CHAR(4);
+Query OK, 10 rows affected (0.04 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE TABLE NGOMA SET GENDER='F'WHERE LNAME=('BELISE','BECCAA','NATACHA','DENYSE','VICKY','BR')
+    -> UPDATE TABLE NGOMA SET GENDER='F'WHERE LNAME=('BELISE','BECCAA','NATACHA','DENYSE','VICKY','BR')
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE NGOMA SET GENDER='F'WHERE LNAME=('BELISE','BECCAA','NATACHA','DENYSE','VIC' at line 1
+mysql> UPDATE TABLE NGOMA SET GENDER='F'WHERE LNAME=('BELISE','BECCAA','NATACHA','DENYSE','VICKY','BENYSE','SONIA');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLE NGOMA SET GENDER='F'WHERE LNAME=('BELISE','BECCAA','NATACHA','DENYSE','VIC' at line 1
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME=('BELISE','BECCAA','NATACHA','DENYSE','VICKY','BENYSE','SONIA');
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='BELISE';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | NULL   |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | NULL   |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | NULL   |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | NULL   |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='BECCA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | NULL   |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | NULL   |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | NULL   |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='BECCA';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | NULL   |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | NULL   |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | NULL   |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='NATACHA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | NULL   |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | NULL   |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='DENYSE';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | NULL   |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='VICKY';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | NULL   |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | NULL   |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='BENYSE';
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | F      |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='BENYSE';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 2  Changed: 0  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | F      |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | NULL   |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='F'WHERE LNAME='SONIA';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | NULL   |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | F      |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | F      |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='M'WHERE LNAME='JAKSON';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | NULL   |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | M      |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | F      |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | F      |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE NGOMA SET GENDER='M'WHERE LNAME='WADERN';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | SECTOR     | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | MUhOZA     | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA    | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | NYAMAGANA  | RUHANGO   | ruvuwade@gmail.com  | 799375444 | M      |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | MUHOZA     | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIMISAGARA | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE    | TABAGWE   | mafijakso@gmail.com | 788864780 | M      |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | RUNDA      | GIHARA    | benrwibu@gmail.com  | 782336010 | F      |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | NGOMA      | RUHANDE   | umwaliso3@gmail.com | 782336010 | F      |
++------------+-----------+---------+----------+------------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> ALTER TABLE NGOMA DROP SECTOR ;
+Query OK, 10 rows affected (0.06 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *FROM NGOMA;
++------------+-----------+---------+----------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | RUVUBATA  | WADERN  | SOUTHERN | RUHANGO    | RUHANGO   | ruvuwade@gmail.com  | 799375444 | M      |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | MAFIRIMBI | JAKSON  | EASTERN  | NYAGATARE  | TABAGWE   | mafijakso@gmail.com | 788864780 | M      |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | GIHARA    | benrwibu@gmail.com  | 782336010 | F      |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | RUHANDE   | umwaliso3@gmail.com | 782336010 | F      |
++------------+-----------+---------+----------+------------+-----------+---------------------+-----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> SELET
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELET' at line 1
+mysql> SELECT FNAME,PROVINCE,GENDER FROM NGOMA;
++-----------+----------+--------+
+| FNAME     | PROVINCE | GENDER |
++-----------+----------+--------+
+| KANGABE   | NORTHERN | F      |
+| TABAGWE   | EASTERN  | F      |
+| RUVUBATA  | SOUTHERN | M      |
+| ZAKAYO    | NORTHERN | F      |
+| NICYOGIHE | KIGALI   | F      |
+| MAFIRIMBI | EASTERN  | M      |
+| KIREZI    | WESTERN  | F      |
+| RWIBUTSO  | SOUTHERN | F      |
+| RWIBUTSO  | SOUTHERN | F      |
+| UMWALI    | SOUTHERN | F      |
++-----------+----------+--------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE PROVINCE='NORTHERN' OR GENDER='F';
++------------+-----------+---------+----------+------------+-----------+---------------------+-----------+--------+
+| ID         | FNAME     | LNAME   | PROVINCE | DISTRICT   | CELL      | EMAIL               | TEL       | GENDER |
++------------+-----------+---------+----------+------------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE   | BELISE  | NORTHERN | MUSANZE    | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
+| 2147483647 | TABAGWE   | BECCA   | EASTERN  | BUGESERA   | NYAMATA   | tababec@gmail.com   | 793879765 | F      |
+| 2147483647 | ZAKAYO    | NATACHA | NORTHERN | MUSANZE    | BUHORO    | ZAKATASHA@gmail.com | 799007877 | F      |
+| 2147483647 | NICYOGIHE | DENYSE  | KIGALI   | NYARUGENGE | KIGALI    | rebenicy@gmail.com  | 790979657 | F      |
+| 2147483647 | KIREZI    | VICKY   | WESTERN  | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | RUBAVU     | RUBAVU    | vikirezi@gmail.com  | 799084780 | F      |
+| 2147483647 | RWIBUTSO  | BENYSE  | SOUTHERN | KAMONYI    | GIHARA    | benrwibu@gmail.com  | 782336010 | F      |
+| 2147483647 | UMWALI    | SONIA   | SOUTHERN | HUYE       | RUHANDE   | umwaliso3@gmail.com | 782336010 | F      |
++------------+-----------+---------+----------+------------+-----------+---------------------+-----------+--------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT *FROM NGOMA WHERE FNAME='KANGABE' AND PROVINCE='NORTHERN';
++------------+---------+--------+----------+----------+-----------+---------------------+-----------+--------+
+| ID         | FNAME   | LNAME  | PROVINCE | DISTRICT | CELL      | EMAIL               | TEL       | GENDER |
++------------+---------+--------+----------+----------+-----------+---------------------+-----------+--------+
+| 2147483647 | KANGABE | BELISE | NORTHERN | MUSANZE  | RUHENGERI | belikang0@gmail.com | 784444465 | F      |
++------------+---------+--------+----------+----------+-----------+---------------------+-----------+--------+
+1 row in set (0.00 sec)
+
+mysql>
